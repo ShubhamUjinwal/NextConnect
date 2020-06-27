@@ -1,0 +1,18 @@
+.comment{
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+}
+.comment > img{
+    height: 30px;
+}
+.comment-owner{
+    margin-left: 10px;
+    font-size: 17px;
+    font-family: 'Roboto', sans-serif;
+}
+.comment-body{
+    margin-top: -1px;
+    margin-left: 40px;
+
+}

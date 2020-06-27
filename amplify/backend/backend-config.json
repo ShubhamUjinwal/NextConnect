@@ -1,0 +1,28 @@
+{
+	"api": {
+		"nextconnect": {
+			"service": "AppSync",
+			"providerPlugin": "awscloudformation",
+			"output": {
+				"authConfig": {
+					"additionalAuthenticationProviders": [],
+					"defaultAuthentication": {
+						"authenticationType": "API_KEY",
+						"apiKeyConfig": {
+							"description": "This is an default API key",
+							"apiKeyExpirationDays": "7"
+						}
+					}
+				}
+			}
+		}
+	},
+	"auth": {
+		"nextconnect4267ef46": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": [],
+			"customAuth": false
+		}
+	}
+}

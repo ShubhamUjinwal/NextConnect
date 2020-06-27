@@ -1,0 +1,20 @@
+.add-comment{
+    margin-top: 15px;
+}
+.comment-input{
+    font-size: 1em;
+    padding: .4em;
+    width: 35vw;
+    border: 1px solid rgba(0, 0, 0, 0.123);
+    border-radius: 1.5em;
+    background-color: rgb(243, 243, 243);
+}
+.comment-button{
+    cursor: pointer;
+    font-size: 0.9em;
+    padding: .5em;
+    margin-left: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.123);
+    border-radius: 1.5em;
+    background-color: rgb(243, 243, 243);
+}
