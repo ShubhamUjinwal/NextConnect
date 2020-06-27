@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/NextConnect/static/css/main.aec92e74.chunk.css",
+    "main.js": "/NextConnect/static/js/main.5c7ec379.chunk.js",
+    "main.js.map": "/NextConnect/static/js/main.5c7ec379.chunk.js.map",
+    "runtime-main.js": "/NextConnect/static/js/runtime-main.e95dbf7a.js",
+    "runtime-main.js.map": "/NextConnect/static/js/runtime-main.e95dbf7a.js.map",
+    "static/js/2.4624fe4a.chunk.js": "/NextConnect/static/js/2.4624fe4a.chunk.js",
+    "static/js/2.4624fe4a.chunk.js.map": "/NextConnect/static/js/2.4624fe4a.chunk.js.map",
+    "index.html": "/NextConnect/index.html",
+    "precache-manifest.54a141cff15eec919a2ae76bd6b07dbc.js": "/NextConnect/precache-manifest.54a141cff15eec919a2ae76bd6b07dbc.js",
+    "service-worker.js": "/NextConnect/service-worker.js",
+    "static/css/main.aec92e74.chunk.css.map": "/NextConnect/static/css/main.aec92e74.chunk.css.map",
+    "static/js/2.4624fe4a.chunk.js.LICENSE.txt": "/NextConnect/static/js/2.4624fe4a.chunk.js.LICENSE.txt",
+    "static/media/close.svg": "/NextConnect/static/media/close.3bbe74fb.svg",
+    "static/media/logout.svg": "/NextConnect/static/media/logout.7d7c0ba2.svg",
+    "static/media/user.svg": "/NextConnect/static/media/user.7a21cbe9.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.e95dbf7a.js",
+    "static/js/2.4624fe4a.chunk.js",
+    "static/css/main.aec92e74.chunk.css",
+    "static/js/main.5c7ec379.chunk.js"
+  ]
+}
