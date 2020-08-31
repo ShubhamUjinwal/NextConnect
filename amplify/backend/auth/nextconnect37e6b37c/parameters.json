@@ -1,8 +1,8 @@
 {
-    "identityPoolName": "nextconnect4267ef46_identitypool_4267ef46",
+    "identityPoolName": "nextconnect37e6b37c_identitypool_37e6b37c",
     "allowUnauthenticatedIdentities": false,
-    "resourceNameTruncated": "nextco4267ef46",
-    "userPoolName": "nextconnect4267ef46_userpool_4267ef46",
+    "resourceNameTruncated": "nextco37e6b37c",
+    "userPoolName": "nextconnect37e6b37c_userpool_37e6b37c",
     "autoVerifiedAttributes": [
         "email"
     ],
@@ -28,10 +28,10 @@
     "userpoolClientReadAttributes": [
         "email"
     ],
-    "userpoolClientLambdaRole": "nextco4267ef46_userpoolclient_lambda_role",
+    "userpoolClientLambdaRole": "nextco37e6b37c_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
-    "sharedId": "4267ef46",
-    "resourceName": "nextconnect4267ef46",
+    "sharedId": "37e6b37c",
+    "resourceName": "nextconnect37e6b37c",
     "authSelections": "identityPoolAndUserPool",
     "authRoleArn": {
         "Fn::GetAtt": [
@@ -46,6 +46,11 @@
         ]
     },
     "useDefault": "default",
+    "triggers": "{}",
     "userPoolGroupList": [],
+    "parentStack": {
+        "Ref": "AWS::StackId"
+    },
+    "permissions": [],
     "dependsOn": []
 }

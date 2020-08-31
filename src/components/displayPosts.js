@@ -192,17 +192,15 @@ class DisplayPosts extends Component{
         
         return (
             <div>
-            <Navbar />
+            <Navbar username={this.state.ownerUsername}/>
             <br/>
             <br/>
             <CreatePost />
-
-
             {
             posts.map((post) => {
             return (
                 <div className="posts" key={post.id} >
-                    {console.log(post)}
+                  
                     <div className="post-header">
                         <div className="post-inner-header">
                         <img src={user} alt={'user'}/>
@@ -230,7 +228,7 @@ class DisplayPosts extends Component{
                                 {
                                     <DeletePost data={post} />
                                 }
-                                 <div className="line" />
+                                
                                 {
                                     <EditPost {...post} />
                                 }   

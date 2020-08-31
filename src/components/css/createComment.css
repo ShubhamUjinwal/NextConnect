@@ -17,4 +17,9 @@
     border: 1px solid rgba(0, 0, 0, 0.123);
     border-radius: 1.5em;
     background-color: rgb(243, 243, 243);
+    transition: 0.3s;
+}
+.comment-button:hover{
+    background-color: purple;
+    color: white;
 }
