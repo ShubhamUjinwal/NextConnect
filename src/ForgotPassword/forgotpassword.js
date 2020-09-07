@@ -1,6 +1,4 @@
 import React from 'react';
-import './forgotpassword.css';
-import logo from '../Assets/logo.png';
 import { Auth } from 'aws-amplify';
 
 export default class ForgotPassword extends React.Component{
@@ -96,7 +94,8 @@ export default class ForgotPassword extends React.Component{
                         </form>
                     </div>
                     <div className='main-right'>
-                        <img className="logo" src={logo} alt={'logo'}/>
+                        {/* <img className="logo" src={logo} alt={'logo'}/> */}
+                        <p id="nextconnect">NextConnect</p>
                     </div>
                 </div>
             </div>

@@ -1,6 +1,4 @@
 import React from 'react';
-import './signup.css';
-import logo from '../Assets/logo.png';
 import { Link } from 'react-router-dom';
 import { Auth } from 'aws-amplify';
 
@@ -37,10 +35,11 @@ export default class SignUp extends React.Component{
         const { username, email, password } = this.state;
         try{
             const signUpResponse = await Auth.signUp({
-                username, 
+                username: email, 
                 password,
                 attributes: {
-                    email: email
+                    email,
+                    name: username
                 }
             });
             console.log(signUpResponse);
@@ -65,7 +64,7 @@ export default class SignUp extends React.Component{
 
     render(){
         return(
-            <div id='login'>
+            <div id='signup'>
                 <div className='main'>
                     <div className='main-left'>
                         <h1 id="title">Sign Up</h1>
@@ -121,7 +120,8 @@ export default class SignUp extends React.Component{
                         </form>
                     </div>
                     <div className='main-right'>
-                        <img className="logo" src={logo} alt={'logo'}/>
+                        {/* <img className="logo" src={logo} alt={'logo'}/> */}
+                        <p id="nextconnect">NextConnect</p>
                     </div>
                 </div>
             </div>

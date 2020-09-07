@@ -1,6 +1,4 @@
 import React from 'react';
-import './login.css';
-import logo from '../Assets/logo.png';
 import { Link } from 'react-router-dom';
 import { Auth } from 'aws-amplify'; 
 
@@ -37,8 +35,8 @@ class Login extends React.Component{
         }catch(error){
             let err = null;
             !error.message ? err = { "message": error} : err = error;
-            this.setState({
-                errors: {
+                this.setState({
+                    errors: {
                     ...this.state.errors,
                     cognito: err
                 }
@@ -87,7 +85,7 @@ class Login extends React.Component{
                                 <Link to='/verifyEmail'>Forgot password?</Link>
                             </div>
                             <br/>
-                            <div className="rememberme">
+                            {/* <div className="rememberme">
                                 <label>
                                     <input
                                         type="checkbox"
@@ -95,7 +93,7 @@ class Login extends React.Component{
                                         name="remember"
                                     />Remember me
                                 </label>
-                            </div>
+                            </div> */}
                             <br/>
                             <input
                                 className="login-button"
@@ -109,7 +107,8 @@ class Login extends React.Component{
                         </form>
                     </div>
                     <div className='main-right'>
-                        <img className="logo" src={logo} alt={'logo'}/>
+                        {/* <img className="logo" src={logo} alt={'logo'}/> */}
+                        <p id="nextconnect">NextConnect</p>
                     </div>
                 </div>
             </div>

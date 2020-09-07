@@ -1,8 +1,6 @@
 {
-    "identityPoolName": "nextconnect37e6b37c_identitypool_37e6b37c",
-    "allowUnauthenticatedIdentities": false,
-    "resourceNameTruncated": "nextco37e6b37c",
-    "userPoolName": "nextconnect37e6b37c_userpool_37e6b37c",
+    "resourceNameTruncated": "nextco92faccb6",
+    "userPoolName": "nextconnect_userpool",
     "autoVerifiedAttributes": [
         "email"
     ],
@@ -14,11 +12,17 @@
     "smsVerificationMessage": "Your verification code is {####}",
     "emailVerificationSubject": "Your verification code",
     "emailVerificationMessage": "Your verification code is {####}",
-    "defaultPasswordPolicy": false,
+    "defaultPasswordPolicy": true,
     "passwordPolicyMinLength": 8,
-    "passwordPolicyCharacters": [],
+    "passwordPolicyCharacters": [
+        "Requires Lowercase",
+        "Requires Uppercase",
+        "Requires Numbers",
+        "Requires Symbols"
+    ],
     "requiredAttributes": [
-        "email"
+        "email",
+        "name"
     ],
     "userpoolClientGenerateSecret": true,
     "userpoolClientRefreshTokenValidity": 30,
@@ -28,11 +32,19 @@
     "userpoolClientReadAttributes": [
         "email"
     ],
-    "userpoolClientLambdaRole": "nextco37e6b37c_userpoolclient_lambda_role",
+    "userpoolClientLambdaRole": "nextco92faccb6_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
-    "sharedId": "37e6b37c",
-    "resourceName": "nextconnect37e6b37c",
-    "authSelections": "identityPoolAndUserPool",
+    "useDefault": "manual",
+    "authSelections": "userPoolOnly",
+    "resourceName": "nextconnectpool",
+    "usernameAttributes": [
+        "email"
+    ],
+    "userPoolGroups": false,
+    "adminQueries": false,
+    "triggers": "{}",
+    "hostedUI": false,
+    "userPoolGroupList": [],
     "authRoleArn": {
         "Fn::GetAtt": [
             "AuthRole",
@@ -45,9 +57,6 @@
             "Arn"
         ]
     },
-    "useDefault": "default",
-    "triggers": "{}",
-    "userPoolGroupList": [],
     "parentStack": {
         "Ref": "AWS::StackId"
     },

@@ -1,5 +1,6 @@
 body {
   margin: 0;
+  background-color: #0c0c0c;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -10,4 +11,114 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+#nextconnect{
+  color: aqua;
+  padding: 2em;
+  font-size: 4.2em;
+}
+
+.main{
+  margin-top: 5em;
+  display: flex;
+  flex-direction: row;
+  font-family: 'Open Sans', sans-serif;
+}
+.main-left{
+  flex: 1;
+  text-align: center;
+  color: lightslategray;
+}
+
+.main-right{
+  flex: 1;
+}
+.main-right > img{
+  width: 100%;
+  height: 50%;
+}
+
+#title{
+  color: lightgray;
+  font-size: 3em;
+}
+
+.textbox{
+  padding: 1em;
+  width: 70%;
+  margin: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.466);
+  border-radius: 5px;
+  background-color: #333333;
+  color: lightgray;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.9rem;
+  outline: none;
+}
+.login-button{
+  padding: 10px;
+  width: 75%;
+  border: 1px solid rgba(0, 0, 0, 0.466);
+  border-radius: 5px;
+  background-color: #333333;
+  color: lightgray;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.2rem;
+  outline: none;
+  transition: 300ms;
+  cursor: pointer;
+}
+.login-button:hover{
+  background-color: #333333;
+  color: white;
+}
+.forgotpassword{
+  text-align: left;
+  margin-left: 6.2vw;
+}
+.forgotpassword > a{
+  text-decoration: none;
+  transition: .3s;
+}
+
+.forgotpassword > a:hover{
+  color: lightgray;
+}
+
+a{
+  text-decoration: none;
+  color: lightslategray;
+  transition: .3s;
+}
+
+a:hover{
+  color: lightgray;
+}
+
+.rememberme{
+  text-align: left;
+  margin-left: 6vw;
+  transition: .3s;
+}
+
+.rememberme:hover{
+  color: lightgray;
+}
+
+@media only screen and (max-width: 850px){
+  .main{
+      flex-direction: column-reverse;
+  }
+  .main-right{
+      display: none;
+  }
+
+  .rememberme{
+      margin-left: 11vw;
+  }
+  .forgotpassword{
+      margin-left: 12vw;
+  }
+
 }

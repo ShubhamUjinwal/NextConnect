@@ -1,6 +1,4 @@
 import React from 'react';
-import './verifyEmail.css';
-import logo from '../Assets/logo.png';
 import { Auth } from 'aws-amplify';
 
 export default class VerifyEmail extends React.Component{
@@ -73,7 +71,8 @@ export default class VerifyEmail extends React.Component{
                         </form>
                     </div>
                     <div className='main-right'>
-                        <img className="logo" src={logo} alt={'logo'}/>
+                        {/* <img className="logo" src={logo} alt={'logo'}/> */}
+                        <p id="nextconnect">NextConnect</p>
                     </div>
                 </div>
             </div>

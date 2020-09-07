@@ -2,28 +2,26 @@
     width: 100vw;
     top: 0;
     position: fixed;
-    background-color: white;
+    background-color: #141414ef;
     box-shadow: -4px 0px 5px 0px #0000004f;
     display: flex;
     flex-direction: row;
     z-index: 999;
-    border-bottom:1px solid purple;
+    border-bottom:1px solid aqua;
+    color: aqua;
 }
-.navbar .logo {
-    height: 55px;
-    width: 170px;
-    padding-left: 10px;
-    padding-top: 3px;
-    cursor: pointer;
+.navbar > p{
+    font-size: 1.4em;
+    padding: 0;
+    margin-left: 10px;
 }
 
 .navbar .user{
     flex: 1;
     display: flex;
     justify-content: right;
-    padding-top: 3px;
+    padding-top: 11px;
     padding-right: 20px;
-    color: purple;
 }
 
 .navbar .username > p{
@@ -34,7 +32,7 @@
     flex: 1;
     height: 30px;
     width: 30px;
-    padding: 15px;
+    padding: 20px;
     cursor: pointer;
 }
 
@@ -43,7 +41,7 @@
     flex-direction: row;
 }
 .navbar .logout-button > a{
-    padding-top: 18px;
+    padding-top: 27px;
     padding-right: 20px;
-    color: purple;
+    color: aqua;
 }

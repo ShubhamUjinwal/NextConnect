@@ -1,28 +1,28 @@
 .createpost{
-    min-width: 40vw;
+    max-width: 95%;
+    width: 675px;
+    margin: auto;
+    margin-top: 40px;
 }
 .add-post{
-    background-color: white;
-    margin: 5vw 25vw 0rem ;
+    background-color: #141414ef;
     border-radius: 10px;
-    box-shadow: 0px 2px 5px 0px #0000004f;
-    display: flex;
-    padding: 1em;
-    flex-direction: row;
-    display: flex;
-    flex-direction: column;
+    box-shadow: 0px 2px 5px 0px #6262624f;
+    padding: 10px;
 }
-.add-post > img{
+img{
     height: 40px;
 }
 .username{
     font-size: 1em;
     padding: .7em;
-    width: 40vw;
+    width: 40em;
     margin-left: 10px;
     border: 1px solid rgba(0, 0, 0, 0.123);
     border-radius: 1.5em;
-    background-color: rgb(243, 243, 243);
+    background-color: #333333;
+    color: lightgray;
+    outline: none;
 }
 
 
@@ -37,7 +37,7 @@
 }
 
 .line{
-    background-color: rgba(0, 0, 0, 0.123);
+    background-color: #53535331;
     height: 1px;
     width: 90%;
     align-self: center;
@@ -55,22 +55,25 @@
 }
 .upload > a{
     margin-top: 5px;
+    color: lightgray;
 }
 
 .submit{
+    display: block;
+    margin: auto;
+    width: 7em;
     cursor: pointer;
-    font-size: 1em;
-    padding: .5em;
-    width: 45vw;
-    margin-left: 10px;
+    font-size: 1.2em;
+    padding: .4em .9em;
     border: 1px solid rgba(0, 0, 0, 0.123);
     border-radius: 1.5em;
-    background-color: rgb(243, 243, 243);
-    transition: .5s;
+    background-color: #333333;
+    color: lightgray;
+    transition: .5s;    
 }
 
 .submit:hover{
-    background-color: purple;
+    background-color: #3b3b3be8;
     color: white;
 }
 

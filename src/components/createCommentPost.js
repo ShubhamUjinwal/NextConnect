@@ -16,7 +16,7 @@ class CreateCommentPost extends Component{
          .then(user => {
               this.setState({
                    commentOwnerId: user.attributes.sub,
-                   commentOwnerUsername: user.username
+                   commentOwnerUsername: user.attributes.name
               })
          })
    }

@@ -1,6 +1,4 @@
 import React, { Component } from 'react'
-import logo from '../Assets/logo.png';
-import logout from '../Assets/logout.svg';
 import './css/navbar.css'
 import { Link } from 'react-router-dom';
 import {Auth} from 'aws-amplify'
@@ -19,9 +17,11 @@ class Navbar extends Component{
     render(){
         return(
             <div>
-                <nav className="navbar">       
+                <nav className="navbar"> 
+                <p>NextConnect</p>      
                     <div>
-                        <img className="logo" src={logo} alt={'logo'}/>
+                        {/* <img className="logo" src={logo} alt={'logo'}/> */}
+                        
                     </div>
 
                     <div className="user">
@@ -29,7 +29,7 @@ class Navbar extends Component{
                     </div>
                     <div className="logout-button">
                         
-                        <img className="logout" src={logout} alt={'logout'}/>
+                        {/* <img className="logout" src={logout} alt={'logout'}/> */}
                         <Link to="/login"  onClick={this.handleLogOut} >Log Out</Link>
                     </div>
                 </nav>

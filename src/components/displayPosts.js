@@ -36,8 +36,11 @@ class DisplayPosts extends Component{
                 this.setState(
                     {
                         ownerId: user.attributes.sub,
-                        ownerUsername: user.username,
+                        ownerUsername: user.attributes.name,
+                        // ownerUsername: user.username,
+                    
                     }
+                    
                 )
             })
 
@@ -189,10 +192,11 @@ class DisplayPosts extends Component{
         const { posts } = this.state
 
         let loggedInUser = this.state.ownerId
-        
+     
         return (
             <div>
             <Navbar username={this.state.ownerUsername}/>
+           
             <br/>
             <br/>
             <CreatePost />
@@ -262,6 +266,7 @@ class DisplayPosts extends Component{
                                 }}
                                className="like-button"> 
                                <FaThumbsUp /> 
+                               <span style={{margin:"2px"}}></span>
                                {post.likes.items.length}
                             </p>
                             
@@ -279,12 +284,7 @@ class DisplayPosts extends Component{
                                 </div>
                             }
                               <p onClick={() => this.handleLike(post.id)} 
-                                style={{
-                                    cursor: "pointer",
-                                    color: "blue",
-                                    fontStyle: "'Lato', sans-serif"
-
-                                }}
+                                 className="handlelike"
                               >Like</p>
                         </span>                         
                     </span>

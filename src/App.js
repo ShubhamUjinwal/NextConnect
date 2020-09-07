@@ -11,7 +11,6 @@ import { Auth } from 'aws-amplify';
 import { withAuthenticator } from 'aws-amplify-react';
 
 
-
 class App extends React.Component{
 
   state = {

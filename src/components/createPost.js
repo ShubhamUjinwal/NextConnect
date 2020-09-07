@@ -18,7 +18,7 @@ class CreatePost extends Component{
         .then( user => {
             this.setState({
                 postOwnerId: user.attributes.sub,
-                postOwnerUsername: user.username
+                postOwnerUsername: user.attributes.name
             })
 
         })
@@ -66,13 +66,13 @@ class CreatePost extends Component{
                         <img src={upload} alt={'logout'}/>
                         <a href="/">Photo/Video</a>
                     </div>
-
-                    <input 
-                    type="submit"
-                    className="submit"
-                    value="Post"
-                    style={{ fontSize: '19px' }}
-                    />
+                    <div className="submit-div">
+                        <input 
+                        type="submit"
+                        className="submit"
+                        value="Post"
+                        />
+                    </div>
                 </form>
             </div>
         )

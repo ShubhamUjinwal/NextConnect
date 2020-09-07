@@ -18,7 +18,7 @@
 		}
 	},
 	"auth": {
-		"nextconnect37e6b37c": {
+		"nextconnectpool": {
 			"service": "Cognito",
 			"providerPlugin": "awscloudformation",
 			"dependsOn": []

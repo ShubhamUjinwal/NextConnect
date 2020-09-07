@@ -1,13 +1,15 @@
 .add-comment{
     margin-top: 15px;
+    display: flex;
 }
 .comment-input{
-    font-size: 1em;
-    padding: .4em;
-    width: 35vw;
+    font-size: .9em;
+    padding: .7em;
+    width: 79%;
     border: 1px solid rgba(0, 0, 0, 0.123);
     border-radius: 1.5em;
-    background-color: rgb(243, 243, 243);
+    background-color: #333333;
+    color: lightgray;
 }
 .comment-button{
     cursor: pointer;
@@ -16,10 +18,11 @@
     margin-left: 10px;
     border: 1px solid rgba(0, 0, 0, 0.123);
     border-radius: 1.5em;
-    background-color: rgb(243, 243, 243);
+    background-color: #333333;
     transition: 0.3s;
+    color: lightgray;
 }
 .comment-button:hover{
-    background-color: purple;
+    background-color: #3b3b3be8;
     color: white;
 }
