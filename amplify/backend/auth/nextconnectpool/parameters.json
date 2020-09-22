@@ -1,4 +1,6 @@
 {
+    "identityPoolName": "nextconnectpool_identitypool_9a0c2119",
+    "allowUnauthenticatedIdentities": true,
     "resourceNameTruncated": "nextco92faccb6",
     "userPoolName": "nextconnect_userpool",
     "autoVerifiedAttributes": [
@@ -35,7 +37,7 @@
     "userpoolClientLambdaRole": "nextco92faccb6_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
     "useDefault": "manual",
-    "authSelections": "userPoolOnly",
+    "authSelections": "identityPoolAndUserPool",
     "resourceName": "nextconnectpool",
     "usernameAttributes": [
         "email"

@@ -1,16 +1,27 @@
 import React, { Component } from 'react'
-import { API, graphqlOperation, Auth } from 'aws-amplify'
+import { Storage, API, graphqlOperation, Auth } from 'aws-amplify'
 import { createPost } from '../graphql/mutations'
 import './css/createPost.css'
 import user from '../Assets/user.svg'
 import upload from '../Assets/upload.jpg';
+import config from '../aws-exports'
+import { v4 as uuid } from 'uuid'
+
+const {
+    aws_user_files_s3_bucket_region: region,
+    aws_user_files_s3_bucket: bucket
+  } = config
+
 class CreatePost extends Component{
 
     state ={
         postOwnerId: "",
         postOwnerUsername: "",
         postTitle: "",
-        postBody: ""
+        postBody: "",
+        file: null,
+        postImage: "",
+        postUrl:""
     }
 
     componentDidMount = async () =>{
@@ -30,18 +41,34 @@ class CreatePost extends Component{
 
     handleAddPost = async event => {
         event.preventDefault()
+        const file = this.state.file;
+        if(file){
+            const extension = file.name.split(".")[1]
+            const fileName = file.name.split(".")[0]
+            const { type : mimeType } = file
+            const key = `images/${uuid()}${fileName}.${extension}` 
+            const url = `https://${bucket}.s3.${region}.amazonaws.com/public/${key}`
+            this.setState({postUrl: url})
+            await Storage.put(key, file, {
+                contentType: mimeType
+            })
+        }
 
         const input = {
             postOwnerId : this.state.postOwnerId,
             postOwnerUsername: this.state.postOwnerUsername,
             postTitle: this.state.postTitle,
-            postBody: this.state.postBody,
+            postBody: this.state.postUrl,
             createdAt: new Date().toISOString()
-        }
+        }  
 
         await API.graphql(graphqlOperation(createPost, { input }))
 
         this.setState({ postTitle: "", postBody: ""})
+    }
+
+    handleChangeImage = event =>{
+        this.setState({file: event.target.files[0]})
     }
 
     render(){
@@ -64,7 +91,14 @@ class CreatePost extends Component{
 
                      <div className="upload">
                         <img src={upload} alt={'logout'}/>
-                        <a href="/">Photo/Video</a>
+                        <input 
+                            className="postUpload"
+                            type="file"
+                            placeholder="Photo/Video"
+                            name="postImage"
+                            value={this.state.postImage}
+                            onChange={this.handleChangeImage}
+                        />
                     </div>
                     <div className="submit-div">
                         <input 

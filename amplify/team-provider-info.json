@@ -1,20 +1,38 @@
 {
-    "dev": {
-        "awscloudformation": {
-            "AuthRoleName": "amplify-nextconnect-dev-212737-authRole",
-            "UnauthRoleArn": "arn:aws:iam::865650539905:role/amplify-nextconnect-dev-212737-unauthRole",
-            "AuthRoleArn": "arn:aws:iam::865650539905:role/amplify-nextconnect-dev-212737-authRole",
-            "Region": "us-east-1",
-            "DeploymentBucketName": "amplify-nextconnect-dev-212737-deployment",
-            "UnauthRoleName": "amplify-nextconnect-dev-212737-unauthRole",
-            "StackName": "amplify-nextconnect-dev-212737",
-            "StackId": "arn:aws:cloudformation:us-east-1:865650539905:stack/amplify-nextconnect-dev-212737/8f437b30-b427-11ea-ae8e-0ecdc090d557",
-            "AmplifyAppId": "d2q784wlwnzzjs"
-        },
-        "categories": {
-            "auth": {
-                "nextconnectpool": {}
-            }
-        }
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-nextconnect-dev-212737-authRole",
+      "UnauthRoleArn": "arn:aws:iam::865650539905:role/amplify-nextconnect-dev-212737-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::865650539905:role/amplify-nextconnect-dev-212737-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-nextconnect-dev-212737-deployment",
+      "UnauthRoleName": "amplify-nextconnect-dev-212737-unauthRole",
+      "StackName": "amplify-nextconnect-dev-212737",
+      "StackId": "arn:aws:cloudformation:us-east-1:865650539905:stack/amplify-nextconnect-dev-212737/8f437b30-b427-11ea-ae8e-0ecdc090d557",
+      "AmplifyAppId": "d2q784wlwnzzjs"
+    },
+    "categories": {
+      "auth": {
+        "nextconnectpool": {}
+      }
     }
+  },
+  "nc": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-nextconnect-nc-144521-authRole",
+      "UnauthRoleArn": "arn:aws:iam::865650539905:role/amplify-nextconnect-nc-144521-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::865650539905:role/amplify-nextconnect-nc-144521-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-nextconnect-nc-144521-deployment",
+      "UnauthRoleName": "amplify-nextconnect-nc-144521-unauthRole",
+      "StackName": "amplify-nextconnect-nc-144521",
+      "StackId": "arn:aws:cloudformation:us-east-1:865650539905:stack/amplify-nextconnect-nc-144521/9c186a90-fc3a-11ea-b893-0e715b49d7c1",
+      "AmplifyAppId": "d2q784wlwnzzjs"
+    },
+    "categories": {
+      "auth": {
+        "nextconnectpool": {}
+      }
+    }
+  }
 }

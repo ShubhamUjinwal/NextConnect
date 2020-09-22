@@ -245,7 +245,10 @@ class DisplayPosts extends Component{
                     </div>
                     <div className="line" />
                     <p className="post-body"> { post.postTitle } </p>
-
+                {console.log(post.postBody)}
+                    {post.postBody != "" &&
+                    <img src={post.postBody} className="postImage" />
+                    }
                     <br /> 
                     <span>
                         {/* {post.postOwnerId === loggedInUser&&
