@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Auth, API, graphqlOperation } from 'aws-amplify'
 import { updatePost } from '../graphql/mutations'
 import './css/editPost.css'
-import close from '../Assets/close.svg'
+import close from '../Assets/close.png'
 
 class EditPost extends Component {
 
@@ -23,8 +23,6 @@ class EditPost extends Component {
     handleModal = (event) => {
          event.preventDefault()
          this.setState({ show: !this.state.show})
-     //     document.body.scrollTop = 0
-     //     document.documentElement.scrollTop = 0
     }
 
     handleUpdatePost = async (event) => {
@@ -63,7 +61,7 @@ class EditPost extends Component {
             .then(user => {
                  this.setState({
                      postOwnerId: user.attributes.sub,
-                     postOwnerUsername: user.username 
+                     postOwnerUsername: user.attributes.name
                  })
             })
          
@@ -87,7 +85,7 @@ class EditPost extends Component {
                          onClick={this.handleModal}>
                          <img src={close}/>
                     </button>
-                             <button className="update-button">Update Post</button>
+                             <button className="update-button">Update</button>
 
 
                       </form>

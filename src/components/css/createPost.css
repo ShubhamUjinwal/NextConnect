@@ -53,9 +53,25 @@ img{
     height: 30px;
     margin-right: 5px;
 }
-.upload > a{
-    margin-top: 5px;
+
+.upload > input[type="file"]{
+    display: none;
+}
+
+label{
     color: lightgray;
+    cursor: pointer;
+    margin-top: 3px;
+}
+
+.add-post > p{
+    color: aqua;
+    text-align: center;
+    margin-top: 4px;
+}
+
+label:hover{
+    color: white;
 }
 
 .submit{

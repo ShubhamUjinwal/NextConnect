@@ -3,7 +3,7 @@ import { Storage, API, graphqlOperation, Auth } from 'aws-amplify'
 import { createPost } from '../graphql/mutations'
 import './css/createPost.css'
 import user from '../Assets/user.svg'
-import upload from '../Assets/upload.jpg';
+import upload from '../Assets/upload2.png';
 import config from '../aws-exports'
 import { v4 as uuid } from 'uuid'
 
@@ -21,7 +21,8 @@ class CreatePost extends Component{
         postBody: "",
         file: null,
         postImage: "",
-        postUrl:""
+        postUrl:"",
+        filename:""
     }
 
     componentDidMount = async () =>{
@@ -35,9 +36,11 @@ class CreatePost extends Component{
         })
     }
 
-    handleChangePost = event => this.setState({
-         [event.target.name]: event.target.value 
+    handleChangePost = event => {
+        this.setState({
+         [event.target.name]: event.target.value
         })
+    }
 
     handleAddPost = async event => {
         event.preventDefault()
@@ -72,6 +75,7 @@ class CreatePost extends Component{
     }
 
     render(){
+        const filename=this.state.file;
         return (
             <div className="createpost">
                 <form className="add-post" onSubmit={this.handleAddPost}>
@@ -89,17 +93,22 @@ class CreatePost extends Component{
                      </div>
                      <div className="line" />
 
-                     <div className="upload">
+                    <div className="upload">
                         <img src={upload} alt={'logout'}/>
                         <input 
                             className="postUpload"
                             type="file"
-                            placeholder="Photo/Video"
+                            id="file"
                             name="postImage"
                             value={this.state.postImage}
                             onChange={this.handleChangeImage}
                         />
+                        <label for="file">Photo/Video</label>
                     </div>
+                    
+                    {filename != null &&
+                    <p>{filename.name}</p>
+                    }
                     <div className="submit-div">
                         <input 
                         type="submit"

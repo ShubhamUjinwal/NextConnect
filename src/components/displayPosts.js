@@ -218,15 +218,14 @@ class DisplayPosts extends Component{
                             </time>
                         </p>
                         </div>
-                        {post.postOwnerId === loggedInUser&&
-                        <div className="post-header-menu"  
-                      
-                        
-                        >
-                            <p  onClick={() => this.handleHeaderMenu(post.id)} >.</p>
-                            <p   onClick={() => this.handleHeaderMenu(post.id)}>.</p>
-                            <p   onClick={() => this.handleHeaderMenu(post.id)}>.</p>
-                            
+                        { post.postOwnerId === loggedInUser&&
+
+                        <div className="post-header-menu">
+                            <div id="dots" onClick={() => this.handleHeaderMenu(post.id)}>
+                                <p>.</p>
+                                <p>.</p>
+                                <p>.</p>
+                            </div>
                             <div className={this.state.burgerMenu === post.id ? "burger-menu": ""}>
                                 <p className="burger-menu-content">
                                 {
@@ -239,6 +238,7 @@ class DisplayPosts extends Component{
                                 </p>                            
                            </div>
                         </div>
+
                         }
 
                        
