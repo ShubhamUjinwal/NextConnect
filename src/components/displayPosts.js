@@ -221,7 +221,10 @@ class DisplayPosts extends Component{
                         { post.postOwnerId === loggedInUser&&
 
                         <div className="post-header-menu">
-                            <div id="dots" onClick={() => this.handleHeaderMenu(post.id)}>
+                            <div id="dots" 
+                                onClick={() => this.handleHeaderMenu(post.id)}
+                           
+                            >
                                 <p>.</p>
                                 <p>.</p>
                                 <p>.</p>
