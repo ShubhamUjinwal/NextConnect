@@ -6,7 +6,7 @@ import ConfirmUser from './SignUp/confirmUser'
 import Login from './Login/login'
 import ForgotPassword from './ForgotPassword/forgotpassword'
 import VerifyEmail from './ForgotPassword/verifyEmail'
-import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom';
 import { Auth } from 'aws-amplify';
 import { withAuthenticator } from 'aws-amplify-react';
 
@@ -50,6 +50,7 @@ class App extends React.Component{
     <div className="App">
       
       <Router>
+        <Redirect exact from="/NextConnect" to="login"></Redirect>
         <Switch>
         <Route path="/" exact render={(props) => <DisplayPost {...props} auth={authProps} />} />
           <Route path="/signup" render={(props) => <SignUp {...props} />} />
