@@ -96,6 +96,8 @@
 .post-body{
     font-family: 'Noto Sans JP', sans-serif;
     font-size: 22px;
+    word-wrap: break-word
+    
 }
 .users-liked{
     color: white;

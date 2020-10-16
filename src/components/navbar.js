@@ -30,7 +30,7 @@ class Navbar extends Component{
                     <div className="logout-button">
                         
                         {/* <img className="logout" src={logout} alt={'logout'}/> */}
-                        <Link to="/login"  onClick={this.handleLogOut} >Log Out</Link>
+                        <Link to="/"  onClick={this.handleLogOut} >Log Out</Link>
                     </div>
                 </nav>
             </div>

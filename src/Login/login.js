@@ -31,7 +31,7 @@ class Login extends React.Component{
         try{
             const user = await Auth.signIn(this.state.username, this.state.password);
             console.log(user)
-            this.props.history.push("/")
+            this.props.history.push("/dashboard")
         }catch(error){
             let err = null;
             !error.message ? err = { "message": error} : err = error;

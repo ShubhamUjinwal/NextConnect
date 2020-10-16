@@ -83,7 +83,7 @@ class EditPost extends Component {
 
                     <button className="close-button"
                          onClick={this.handleModal}>
-                         <img src={close}/>
+                         <img src={close} alt="closebuttonimage"/>
                     </button>
                              <button className="update-button">Update</button>
 

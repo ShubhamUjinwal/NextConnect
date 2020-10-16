@@ -36,9 +36,7 @@ class DisplayPosts extends Component{
                 this.setState(
                     {
                         ownerId: user.attributes.sub,
-                        ownerUsername: user.attributes.name,
-                        // ownerUsername: user.username,
-                    
+                        ownerUsername: user.attributes.name,   
                     }
                     
                 )
@@ -248,9 +246,9 @@ class DisplayPosts extends Component{
                     </div>
                     <div className="line" />
                     <p className="post-body"> { post.postTitle } </p>
-                {console.log(post.postBody)}
-                    {post.postBody != "" &&
-                    <img src={post.postBody} className="postImage" />
+                    {console.log(post.postBody)}
+                    {post.postBody !== "" &&
+                    <img src={post.postBody} alt="postimage" className="postImage" />
                     }
                     <br /> 
                     <span>
