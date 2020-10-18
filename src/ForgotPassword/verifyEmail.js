@@ -49,6 +49,7 @@ export default class VerifyEmail extends React.Component{
             <div id='login'>
                 <div className='main'>
                     <div className='main-left'>
+                        <h1 className="page-title">NextConnect</h1>
                         <h1 id="title">Verify Email</h1>
                         
                         <form onSubmit={this.forgotPasswordHandler}>
@@ -69,10 +70,6 @@ export default class VerifyEmail extends React.Component{
                                 value="send"
                             />
                         </form>
-                    </div>
-                    <div className='main-right'>
-                        {/* <img className="logo" src={logo} alt={'logo'}/> */}
-                        <p id="nextconnect">NextConnect</p>
                     </div>
                 </div>
             </div>

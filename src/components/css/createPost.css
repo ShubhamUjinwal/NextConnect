@@ -5,9 +5,9 @@
     margin-top: 40px;
 }
 .add-post{
-    background-color: #141414ef;
+    background-color: #0c0c0c;
     border-radius: 10px;
-    box-shadow: 0px 2px 5px 0px #6262624f;
+    box-shadow: 0px 2px 5px 0px #6262625d;
     padding: 10px;
 }
 img{
@@ -18,11 +18,17 @@ img{
     padding: .7em;
     width: 40em;
     margin-left: 10px;
-    border: 1px solid rgba(0, 0, 0, 0.123);
-    border-radius: 1.5em;
-    background-color: #333333;
+    border: 1px solid rgba(255, 255, 255, 0.151);
+    background-color: #0c0c0c;
     color: lightgray;
+    /* border: 2px solid purple;    */
+    border-radius: 1.5em;
+
     outline: none;
+}
+
+input:required{
+    box-shadow: none;
 }
 
 
@@ -39,8 +45,8 @@ img{
 .line{
     background-color: #53535331;
     height: 1px;
+    margin: auto;
     width: 90%;
-    align-self: center;
 }
 
 .upload{
@@ -81,15 +87,16 @@ label:hover{
     cursor: pointer;
     font-size: 1.2em;
     padding: .4em .9em;
-    border: 1px solid rgba(0, 0, 0, 0.123);
+    border: 1px solid rgba(255, 255, 255, 0.171);
     border-radius: 1.5em;
-    background-color: #333333;
+    background-color: #0c0c0c;
     color: lightgray;
-    transition: .5s;    
+    transition: .3s;    
 }
 
 .submit:hover{
-    background-color: #3b3b3be8;
+    /* background-color: #3b3b3be8; */
+    border: 1px solid purple;
     color: white;
 }
 

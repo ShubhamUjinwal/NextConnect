@@ -54,6 +54,7 @@ export default class ForgotPassword extends React.Component{
             <div id='login'>
                 <div className='main'>
                     <div className='main-left'>
+                        <h1 className="page-title">NextConnect</h1>
                         <h1 id="title">Change Password</h1>
                         
                         <form onSubmit={this.forgotPasswordHandler}>
@@ -92,10 +93,6 @@ export default class ForgotPassword extends React.Component{
                                 value="Submit"
                             />
                         </form>
-                    </div>
-                    <div className='main-right'>
-                        {/* <img className="logo" src={logo} alt={'logo'}/> */}
-                        <p id="nextconnect">NextConnect</p>
                     </div>
                 </div>
             </div>

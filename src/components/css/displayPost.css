@@ -1,10 +1,10 @@
 .posts{
-    background-color: #141414ef;
+    background-color: #0c0c0c;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 1px #6262625d;
     max-width: 90%;
     width: 650px;
     margin: 40px auto;
-    border-radius: 10px;
-    box-shadow: 0px 2px 5px 0px #0000004f;
     color: lightgray;
     padding: 1em;
 }

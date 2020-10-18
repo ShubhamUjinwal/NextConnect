@@ -57,7 +57,7 @@ class CreateCommentPost extends Component{
                 <input 
                     className="comment-button"
                     type="submit"
-                    value="Add Comment"
+                    value=">"
                 />
 
             </form>     

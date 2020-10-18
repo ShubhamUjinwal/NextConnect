@@ -18,20 +18,17 @@ class Navbar extends Component{
         return(
             <div>
                 <nav className="navbar"> 
-                <p>NextConnect</p>      
-                    <div>
-                        {/* <img className="logo" src={logo} alt={'logo'}/> */}
-                        
-                    </div>
+
+                    <h1>NextConnect</h1>      
 
                     <div className="user">
                         <p>Hello {this.props.username}</p>
                     </div>
+
                     <div className="logout-button">
-                        
-                        {/* <img className="logout" src={logout} alt={'logout'}/> */}
                         <Link to="/"  onClick={this.handleLogOut} >Log Out</Link>
                     </div>
+                    
                 </nav>
             </div>
         )

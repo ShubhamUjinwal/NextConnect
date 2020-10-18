@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import DisplayPost from './components/displayPosts'
+import LandingPage from './components/landingPage'
 import SignUp from './SignUp/signup'
 import ConfirmUser from './SignUp/confirmUser'
 import Login from './Login/login'
@@ -50,7 +51,8 @@ class App extends React.Component{
       
       <Router>
         <Switch>
-          <Route path="/" exact render={(props) => <Login {...props} auth={authProps} />} />
+          <Route path="/" exact render={(props) => <LandingPage {...props} />}></Route>
+          <Route path="/login" render={(props) => <Login {...props} auth={authProps} />} />
           <Route path="/dashboard" render={(props) => <DisplayPost {...props} auth={authProps} />} />
           <Route path="/signup" render={(props) => <SignUp {...props} />} />
           <Route path="/verifyEmail" render={(props) => <VerifyEmail {...props} />} />

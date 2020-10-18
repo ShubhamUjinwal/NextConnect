@@ -50,6 +50,7 @@ export default class SignUp extends React.Component{
             <div id='login'>
                 <div className='main'>
                     <div className='main-left'>
+                        <h1 className="page-title">NextConnect</h1>
                         <h1 id="title">Confirm User</h1>
                         
                         <form onSubmit={this.handleSubmit}>

@@ -67,6 +67,7 @@ export default class SignUp extends React.Component{
             <div id='signup'>
                 <div className='main'>
                     <div className='main-left'>
+                    <Link to="/"><h1 className="page-title">NextConnect</h1></Link>
                         <h1 id="title">Sign Up</h1>
                         
                         <form onSubmit={this.handleSubmit}>
@@ -116,12 +117,8 @@ export default class SignUp extends React.Component{
                                 value="Sign Up"
                             />
                             <p>Have an account?</p>
-                            <Link to='/'>Login</Link>
+                            <Link to='/login'>Login</Link>
                         </form>
-                    </div>
-                    <div className='main-right'>
-                        {/* <img className="logo" src={logo} alt={'logo'}/> */}
-                        <p id="nextconnect">NextConnect</p>
                     </div>
                 </div>
             </div>

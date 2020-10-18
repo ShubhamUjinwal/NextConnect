@@ -10,7 +10,7 @@ import { v4 as uuid } from 'uuid'
 const {
     aws_user_files_s3_bucket_region: region,
     aws_user_files_s3_bucket: bucket
-  } = config
+} = config
 
 class CreatePost extends Component{
 
