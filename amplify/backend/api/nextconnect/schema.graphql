@@ -25,3 +25,9 @@ type Like @model {
 	likeOwnerUsername: String!
 	post: Post @connection(name: "PostLikes")
 }
+
+type User @model{
+	id: ID!
+	userDP: String!
+	createdAt: String!
+}

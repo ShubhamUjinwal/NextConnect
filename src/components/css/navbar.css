@@ -4,46 +4,46 @@
     top: 0;
     background-color: black;
     position: fixed;
-    color: white;
     display: flex;
     z-index: 999;
     border-bottom:1px solid transparent;
     border-image: linear-gradient(35deg, #24a2ff 25%, #a01dfd 45%, #ff3232 70%);
     border-image-slice: 1;
+    line-height: 40px;
 }
 .navbar > h1{
     font-size: 1.3em;
-    padding: 1px;
-    margin-left: 10px;
+    padding: 0 10px;
     background: linear-gradient(35deg, #24a2ff 25%, #a01dfd 45%, #ff3232 70%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-family: 'Pacifico', cursive;
 }
 
+.navbar > p{
+    flex: 1;
+}
+
 .navbar .user{
-    flex: 1;
+    color: white;
     display: flex;
-    justify-content: right;
-    padding-top: 11px;
     padding-right: 20px;
-    margin-left: 20em;
 }
 
-.navbar .logout{
-    flex: 1;
-    height: 30px;
-    width: 30px;
-    padding: 20px;
-    cursor: pointer;
+.UserDP{
+    height: 35px;
+    margin-right: 6px;
+    margin-top: 18px;
 }
 
-.navbar .logout-button{
-    display: flex;
-    flex-direction: row;
-}
-.navbar .logout-button > a{
-    padding-top: 27px;
+@media only screen and (max-width: 600px) {
+    .UserDP{
+        margin-top: 15px;
+    }
+  }
+
+.navbar > a{
+    margin-top: 18px;
     padding-right: 20px;
     color: aqua;
 }

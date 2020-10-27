@@ -252,13 +252,6 @@ class DisplayPosts extends Component{
                     }
                     <br /> 
                     <span>
-                        {/* {post.postOwnerId === loggedInUser&&
-                            <DeletePost data={post} />
-                        }
-                        {post.postOwnerId === loggedInUser&&
-                        <EditPost {...post} />
-                        }    */}
-
                         <span>
                             <p className="alert"> {post.postOwnerId === loggedInUser && this.state.errorMessage} </p>
                             <p onMouseEnter={ () => this.handleMouseHover(post.id)}

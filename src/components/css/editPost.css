@@ -1,9 +1,8 @@
 .edit-post{
-    background-color: #1b1b1b;
+    background-color: #1b1b1bd8;
     position: absolute;
     right: 0;
-    margin-right: 60px;
-    width: 300px;
+    width: 18rem;
     border-radius: 5px;
     padding: 5px;
 }
