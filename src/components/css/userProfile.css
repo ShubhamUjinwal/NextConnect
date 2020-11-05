@@ -1,0 +1,33 @@
+.userProfile{
+    display: flex;
+    flex-direction: column;
+    max-width: 95%;
+    width: 675px;
+    margin: auto;
+    margin-top: 70px;
+}
+
+.userProfile > img{
+    margin:  auto;
+    height: 250px;
+    width: 250px;
+    border-radius: 10em;
+}
+
+.userInfo{
+    padding: 10px;
+    font-size: 1.2em;
+}
+
+.userInfo > input{
+    color: lightgray;
+    font-size: 1em;
+    background-color: transparent;
+    border-color: transparent;
+    border-bottom: 1px solid gray;
+    outline: none;
+    padding: 5px;
+    margin: 10px;
+    width: 70%;
+    word-wrap: break-word
+}

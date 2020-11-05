@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import DisplayPost from './components/displayPosts'
+import UserProfile from './components/userProfile'
 import LandingPage from './components/landingPage'
 import SignUp from './SignUp/signup'
 import ConfirmUser from './SignUp/confirmUser'
@@ -58,6 +59,7 @@ class App extends React.Component{
           <Route path="/verifyEmail" render={(props) => <VerifyEmail {...props} />} />
           <Route path="/forgotPassword" render={(props) => <ForgotPassword {...props} />} />
           <Route path="/confirmUser" render={(props) => <ConfirmUser {...props} />} />
+          <Route path="/userProfile" render={(props) => <UserProfile {...props} auth={authProps} />}></Route>
         </Switch>
       </Router>
       

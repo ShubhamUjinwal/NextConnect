@@ -11,13 +11,19 @@
     border-image-slice: 1;
     line-height: 40px;
 }
-.navbar > h1{
+
+a{
+    outline: none;
+}
+
+.navbar > a > h1{
     font-size: 1.3em;
     padding: 0 10px;
     background: linear-gradient(35deg, #24a2ff 25%, #a01dfd 45%, #ff3232 70%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-family: 'Pacifico', cursive;
+    outline: none;
 }
 
 .navbar > p{
@@ -34,6 +40,7 @@
     height: 35px;
     margin-right: 6px;
     margin-top: 18px;
+    cursor: pointer;
 }
 
 @media only screen and (max-width: 600px) {
@@ -42,7 +49,7 @@
     }
   }
 
-.navbar > a{
+.logout{
     margin-top: 18px;
     padding-right: 20px;
     color: aqua;

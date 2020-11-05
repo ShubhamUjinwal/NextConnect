@@ -21,9 +21,7 @@ img{
     border: 1px solid rgba(255, 255, 255, 0.151);
     background-color: #0c0c0c;
     color: lightgray;
-    /* border: 2px solid purple;    */
     border-radius: 1.5em;
-
     outline: none;
 }
 

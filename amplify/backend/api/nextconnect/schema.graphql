@@ -28,6 +28,8 @@ type Like @model {
 
 type User @model{
 	id: ID!
+	user: String!
 	userDP: String!
+	about: String!
 	createdAt: String!
 }
