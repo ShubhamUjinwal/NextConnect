@@ -17,12 +17,13 @@ class CreatePost extends Component{
     state ={
         postOwnerId: "",
         postOwnerUsername: "",
+        postOwnerEmail: "",
         postTitle: "",
         postBody: "",
         file: null,
-        postImage: "",
         postUrl:"",
-        filename:""
+        filename:"",
+        dp: []
     }
 
     componentDidMount = async () =>{
@@ -30,10 +31,13 @@ class CreatePost extends Component{
         .then( user => {
             this.setState({
                 postOwnerId: user.attributes.sub,
-                postOwnerUsername: user.attributes.name
+                postOwnerUsername: user.attributes.name,
+                postOwnerEmail: user.attributes.email
             })
 
         })
+
+        this.getDP()
     }
 
     handleChangePost = event => {
@@ -60,6 +64,7 @@ class CreatePost extends Component{
         const input = {
             postOwnerId : this.state.postOwnerId,
             postOwnerUsername: this.state.postOwnerUsername,
+            postOwnerEmail: this.state.postOwnerEmail,
             postTitle: this.state.postTitle,
             postBody: this.state.postUrl,
             createdAt: new Date().toISOString()
@@ -74,13 +79,32 @@ class CreatePost extends Component{
         this.setState({file: event.target.files[0]})
     }
 
+    getDP = async (email) => {
+        const result = await Storage.list('userDp/')
+        this.setState({dp: result})
+    }
+
     render(){
         const filename=this.state.file;
+        const { dp, postOwnerEmail } = this.state
+        let postUrl=""
         return (
             <div className="createpost">
                 <form className="add-post" onSubmit={this.handleAddPost}>
                     <div className="status">
-                    <img src={user} alt={'user'}/>
+
+                    {
+                        dp.map((dp) => {
+                            const x = dp.key.split('/')
+                            if(x[1] === postOwnerEmail)
+                                postUrl="https://ncimages144521-nc.s3.amazonaws.com/public/"+dp.key
+                            return null
+                        })   
+                    }
+                
+                    <img src={postUrl === ""? user : postUrl} alt={'user'}/>
+
+
                         <input 
                         className="username"
                         type="text"
@@ -103,7 +127,7 @@ class CreatePost extends Component{
                             value={this.state.postImage}
                             onChange={this.handleChangeImage}
                         />
-                        <label for="file">Photo/Video</label>
+                        <label htmlFor="file">Photo/Video</label>
                     </div>
                     
                     {filename != null &&

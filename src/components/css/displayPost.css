@@ -27,6 +27,8 @@
 
 .post-inner-header > img{
     height: 40px;
+    width: 40px;
+    border-radius: 20px;
 }
 .post-username{
     font-family: 'Roboto', sans-serif;

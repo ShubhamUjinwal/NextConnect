@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { listPosts } from '../graphql/queries'
-import { API, graphqlOperation } from 'aws-amplify'
+import { Storage, API, graphqlOperation } from 'aws-amplify'
 import DeletePost from './deletePost'
 import EditPost from './editPost'
 import { onCreatePost, onDeletePost, onUpdatePost, onCreateComment, onCreateLike} from '../graphql/subscriptions'
@@ -20,28 +20,31 @@ class DisplayPosts extends Component{
     state = {
         ownerId: "",
         ownerUsername: "",
+        ownerEmail: "",
         errorMessage: "",
         postLikedBy: [],
         isHovering: false,
         isHoveringId: -1,
         burgerMenu: -1,
-        posts: []
+        userDPEmail: "",
+        posts: [],
+        dp: [],
     }
 
     componentDidMount= async () =>{
         this.getPosts()
-
+        this.getDP()
         await Auth.currentUserInfo()
             .then(user => {
                 this.setState(
                     {
                         ownerId: user.attributes.sub,
-                        ownerUsername: user.attributes.name,   
+                        ownerUsername: user.attributes.name,  
+                        ownerEmail: user.attributes.email
                     }
                     
                 )
             })
-
         this.createPostListener = API.graphql(graphqlOperation(onCreatePost))
             .subscribe({
                 next: postData => {
@@ -123,8 +126,8 @@ class DisplayPosts extends Component{
     getPosts = async () => {
         const result = await API.graphql(graphqlOperation(listPosts));
         this.setState({ posts: result.data.listPosts.items})
-        // console.log("All Posts: ", JSON.stringify(result.data.listPosts.items));
     }
+    
 
     likedPost = (postId) =>{
         for(let post of this.state.posts){
@@ -151,9 +154,7 @@ class DisplayPosts extends Component{
             }
     
             try {
-                const result = await API.graphql(graphqlOperation(createLike, { input }))
-    
-                console.log("Liked: ", result.data)
+                await API.graphql(graphqlOperation(createLike, { input }))
             }catch (error){
                 console.error(error)
             }
@@ -186,15 +187,20 @@ class DisplayPosts extends Component{
         this.setState({burgerMenu: (this.state.burgerMenu === index ? -1 : index)})
     }
 
-    render(){
-        const { posts } = this.state
+    getDP = async (email) => {
+        const result = await Storage.list('userDp/')
+        this.setState({dp: result})
+    }
 
+
+    render(){
+        const { posts, dp } = this.state
         let loggedInUser = this.state.ownerId
      
         return (
             <div>
             <Navbar username={this.state.ownerUsername}/>
-           
+            
             <br/>
             <br/>
             <CreatePost />
@@ -202,10 +208,23 @@ class DisplayPosts extends Component{
             posts.map((post) => {
             return (
                 <div className="posts" key={post.id} >
-                  
+                    
+
                     <div className="post-header">
                         <div className="post-inner-header">
-                        <img src={user} alt={'user'}/>
+                        
+                        
+                        {
+                            dp.map((dp) => {
+                                const x = dp.key.split('/')
+                                if(x[1] === post.postOwnerEmail)
+                                    post.postOwnerDpURL="https://ncimages144521-nc.s3.amazonaws.com/public/"+dp.key
+                                return null
+                            })   
+                        }
+        
+                        <img src={post.postOwnerDpURL === null ? user : post.postOwnerDpURL} alt={'user'}/>
+
                         <p className="post-username">
                             { post.postOwnerUsername}
                             <time style={{ color: "gray", fontStyle: "italic", fontSize: "13px"}}>
@@ -246,7 +265,7 @@ class DisplayPosts extends Component{
                     </div>
                     <div className="line" />
                     <p className="post-body"> { post.postTitle } </p>
-                    {console.log(post.postBody)}
+                 
                     {post.postBody !== "" &&
                     <img src={post.postBody} alt="postimage" className="postImage" />
                     }
@@ -293,7 +312,7 @@ class DisplayPosts extends Component{
                         { post.comments.items.length > 0 && <span className="comments">
                              Comments: </span>}
                              {
-                                  post.comments.items.map((comment, index) => <CommentPost key={index} commentData={comment}/>)
+                                  post.comments.items.map((comment, index) => <CommentPost key={index} commentData={comment}/>)                                
                              }
                             
                     </span>

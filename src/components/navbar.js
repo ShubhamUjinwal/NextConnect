@@ -3,18 +3,15 @@ import './css/navbar.css'
 import { Link } from 'react-router-dom';
 import {Auth} from 'aws-amplify'
 import { FaPowerOff } from 'react-icons/fa'
-import { listUsers } from '../graphql/queries'
-import { Storage, API, graphqlOperation} from 'aws-amplify'
+import { Storage } from 'aws-amplify'
 import user from '../Assets/user.svg'
 
 
 class Navbar extends Component{
 
     state = {
-        ownerId: "",
-        ownerUsername: "",
         ownerEmail: "",
-        userDp: [],
+        dp: [],
         userDpUrl:"",
     }
 
@@ -23,11 +20,8 @@ class Navbar extends Component{
             .then(user => {
                 this.setState(
                     {
-                        ownerId: user.attributes.sub,
-                        ownerUsername: user.attributes.name,
                         ownerEmail: user.attributes.email,   
                     }
-                    
                 )
             })
         this.getDP()
@@ -35,11 +29,8 @@ class Navbar extends Component{
 
     
     getDP = async () => {
-        const result = await API.graphql(graphqlOperation(listUsers, {
-            filter: {id: {eq: this.state.ownerEmail}}
-        } ));
-        if (result.data.listUsers.items.length !== 0)
-            this.setState({ userDp: result.data.listUsers.items[0]})
+        const result = await Storage.list('userDp/')
+        this.setState({dp: result})
     }
 
     handleLogOut = async event =>{
@@ -51,7 +42,8 @@ class Navbar extends Component{
     }
 
     render(){
-        const { userDp } = this.state
+        const { dp, ownerEmail } = this.state
+        let userDpUrl=""
         return(
             <div>
                 <nav className="navbar"> 
@@ -59,8 +51,19 @@ class Navbar extends Component{
                         <h1>NextConnect</h1>      
                     </Link>
                     <p></p>
+
+                    { 
+                        dp.map((dp) => {
+                            const x = dp.key.split('/')
+                            if(x[1] === ownerEmail)
+                                userDpUrl="https://ncimages144521-nc.s3.amazonaws.com/public/"+dp.key
+                            return null
+                        })   
+                    }
+
                     <Link to="/userProfile" >
-                        <img className="UserDP" src={userDp.length === 0? user : userDp.userDP} alt={'user'}/>
+                     
+                        <img className="UserDP" src={userDpUrl === "" ? user : userDpUrl} alt={'user'}/>
                     </Link>
                     <div className="user">
                         <p>{this.props.username}</p>

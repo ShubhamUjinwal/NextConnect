@@ -8,6 +8,7 @@ class CreateCommentPost extends Component{
     state = {
         commentOwnerId: "",
         commentOwnerUsername: "",
+        commentOwnerEmail: "",
         content: ""
     }
 
@@ -16,7 +17,8 @@ class CreateCommentPost extends Component{
          .then(user => {
               this.setState({
                    commentOwnerId: user.attributes.sub,
-                   commentOwnerUsername: user.attributes.name
+                   commentOwnerUsername: user.attributes.name,
+                   commentOwnerEmail: user.attributes.email
               })
          })
    }
@@ -29,6 +31,7 @@ class CreateCommentPost extends Component{
                commentPostId: this.props.postId,
                commentOwnerId: this.state.commentOwnerId,
                commentOwnerUsername: this.state.commentOwnerUsername,
+               commentOwnerEmail: this.state.commentOwnerEmail,
                content: this.state.content,
                createdAt: new Date().toISOString()
           }

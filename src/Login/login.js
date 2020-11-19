@@ -25,12 +25,9 @@ class Login extends React.Component{
 
     handleSubmit = async event =>{
         event.preventDefault();
-        /* Validation */
 
-        /* AWS Cognito integration here */
         try{
-            const user = await Auth.signIn(this.state.username, this.state.password);
-            console.log(user)
+            await Auth.signIn(this.state.username, this.state.password);
             this.props.history.push("/dashboard")
         }catch(error){
             let err = null;

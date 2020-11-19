@@ -4,7 +4,10 @@ type Post @model {
 	postOwnerUsername: String!
 	postTitle: String!
 	postBody: String!
+	postOwnerEmail: String
+	postOwnerDpURL: String
 	createdAt: String
+	user: User @connection(name: "UserPosts") #relationship
 	comments: [Comment] @connection(name: "PostComments") #relationship
 	likes: [Like] @connection(name: "PostLikes")
 }
@@ -13,6 +16,8 @@ type Comment @model {
 	id: ID!
 	commentOwnerId: String!
 	commentOwnerUsername: String!
+	commentOwnerEmail: String
+	commentOwnerDpURL: String
 	post: Post @connection(name: "PostComments")
 	content: String!
 	createdAt: String!
@@ -27,9 +32,10 @@ type Like @model {
 }
 
 type User @model{
-	id: ID!
+	id: ID! #email
 	user: String!
 	userDP: String!
 	about: String!
+	post: [Post] @connection(name: "UserPosts") #relationship
 	createdAt: String!
 }

@@ -37,7 +37,9 @@ input:required{
 }
 
 .status > img{
-    height: 40px;
+    height: 44px;
+    width: 46px;
+    border-radius: 10em;
 }
 
 .line{

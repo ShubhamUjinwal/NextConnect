@@ -9,12 +9,27 @@ export const getPost = /* GraphQL */ `
       postOwnerUsername
       postTitle
       postBody
+      postOwnerEmail
+      postOwnerDpURL
       createdAt
+      user {
+        id
+        user
+        userDP
+        about
+        post {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
       comments {
         items {
           id
           commentOwnerId
           commentOwnerUsername
+          commentOwnerEmail
+          commentOwnerDpURL
           content
           createdAt
           updatedAt
@@ -49,12 +64,24 @@ export const listPosts = /* GraphQL */ `
         postOwnerUsername
         postTitle
         postBody
+        postOwnerEmail
+        postOwnerDpURL
         createdAt
+        user {
+          id
+          user
+          userDP
+          about
+          createdAt
+          updatedAt
+        }
         comments {
           items{
             id
             commentOwnerId
             commentOwnerUsername
+            commentOwnerEmail
+            commentOwnerDpURL
             content
             createdAt
           }
@@ -79,13 +106,25 @@ export const getComment = /* GraphQL */ `
       id
       commentOwnerId
       commentOwnerUsername
+      commentOwnerEmail
+      commentOwnerDpURL
       post {
         id
         postOwnerId
         postOwnerUsername
         postTitle
         postBody
+        postOwnerEmail
+        postOwnerDpURL
         createdAt
+        user {
+          id
+          user
+          userDP
+          about
+          createdAt
+          updatedAt
+        }
         comments {
           nextToken
         }
@@ -111,12 +150,16 @@ export const listComments = /* GraphQL */ `
         id
         commentOwnerId
         commentOwnerUsername
+        commentOwnerEmail
+        commentOwnerDpURL
         post {
           id
           postOwnerId
           postOwnerUsername
           postTitle
           postBody
+          postOwnerEmail
+          postOwnerDpURL
           createdAt
           updatedAt
         }
@@ -141,7 +184,17 @@ export const getLike = /* GraphQL */ `
         postOwnerUsername
         postTitle
         postBody
+        postOwnerEmail
+        postOwnerDpURL
         createdAt
+        user {
+          id
+          user
+          userDP
+          about
+          createdAt
+          updatedAt
+        }
         comments {
           nextToken
         }
@@ -173,6 +226,8 @@ export const listLikes = /* GraphQL */ `
           postOwnerUsername
           postTitle
           postBody
+          postOwnerEmail
+          postOwnerDpURL
           createdAt
           updatedAt
         }
@@ -190,6 +245,20 @@ export const getUser = /* GraphQL */ `
       user
       userDP
       about
+      post {
+        items {
+          id
+          postOwnerId
+          postOwnerUsername
+          postTitle
+          postBody
+          postOwnerEmail
+          postOwnerDpURL
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
       createdAt
       updatedAt
     }
@@ -207,6 +276,9 @@ export const listUsers = /* GraphQL */ `
         user
         userDP
         about
+        post {
+          nextToken
+        }
         createdAt
         updatedAt
       }

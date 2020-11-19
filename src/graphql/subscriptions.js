@@ -9,12 +9,27 @@ export const onCreatePost = /* GraphQL */ `
       postOwnerUsername
       postTitle
       postBody
+      postOwnerEmail
+      postOwnerDpURL
       createdAt
+      user {
+        id
+        user
+        userDP
+        about
+        post {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
       comments {
         items {
           id
           commentOwnerId
           commentOwnerUsername
+          commentOwnerEmail
+          commentOwnerDpURL
           content
           createdAt
           updatedAt
@@ -44,12 +59,27 @@ export const onUpdatePost = /* GraphQL */ `
       postOwnerUsername
       postTitle
       postBody
+      postOwnerEmail
+      postOwnerDpURL
       createdAt
+      user {
+        id
+        user
+        userDP
+        about
+        post {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
       comments {
         items {
           id
           commentOwnerId
           commentOwnerUsername
+          commentOwnerEmail
+          commentOwnerDpURL
           content
           createdAt
           updatedAt
@@ -79,12 +109,27 @@ export const onDeletePost = /* GraphQL */ `
       postOwnerUsername
       postTitle
       postBody
+      postOwnerEmail
+      postOwnerDpURL
       createdAt
+      user {
+        id
+        user
+        userDP
+        about
+        post {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
       comments {
         items {
           id
           commentOwnerId
           commentOwnerUsername
+          commentOwnerEmail
+          commentOwnerDpURL
           content
           createdAt
           updatedAt
@@ -112,13 +157,25 @@ export const onCreateComment = /* GraphQL */ `
       id
       commentOwnerId
       commentOwnerUsername
+      commentOwnerEmail
+      commentOwnerDpURL
       post {
         id
         postOwnerId
         postOwnerUsername
         postTitle
         postBody
+        postOwnerEmail
+        postOwnerDpURL
         createdAt
+        user {
+          id
+          user
+          userDP
+          about
+          createdAt
+          updatedAt
+        }
         comments {
           nextToken
         }
@@ -139,13 +196,25 @@ export const onUpdateComment = /* GraphQL */ `
       id
       commentOwnerId
       commentOwnerUsername
+      commentOwnerEmail
+      commentOwnerDpURL
       post {
         id
         postOwnerId
         postOwnerUsername
         postTitle
         postBody
+        postOwnerEmail
+        postOwnerDpURL
         createdAt
+        user {
+          id
+          user
+          userDP
+          about
+          createdAt
+          updatedAt
+        }
         comments {
           nextToken
         }
@@ -166,13 +235,25 @@ export const onDeleteComment = /* GraphQL */ `
       id
       commentOwnerId
       commentOwnerUsername
+      commentOwnerEmail
+      commentOwnerDpURL
       post {
         id
         postOwnerId
         postOwnerUsername
         postTitle
         postBody
+        postOwnerEmail
+        postOwnerDpURL
         createdAt
+        user {
+          id
+          user
+          userDP
+          about
+          createdAt
+          updatedAt
+        }
         comments {
           nextToken
         }
@@ -200,7 +281,17 @@ export const onCreateLike = /* GraphQL */ `
         postOwnerUsername
         postTitle
         postBody
+        postOwnerEmail
+        postOwnerDpURL
         createdAt
+        user {
+          id
+          user
+          userDP
+          about
+          createdAt
+          updatedAt
+        }
         comments {
           nextToken
         }
@@ -227,7 +318,17 @@ export const onUpdateLike = /* GraphQL */ `
         postOwnerUsername
         postTitle
         postBody
+        postOwnerEmail
+        postOwnerDpURL
         createdAt
+        user {
+          id
+          user
+          userDP
+          about
+          createdAt
+          updatedAt
+        }
         comments {
           nextToken
         }
@@ -254,7 +355,17 @@ export const onDeleteLike = /* GraphQL */ `
         postOwnerUsername
         postTitle
         postBody
+        postOwnerEmail
+        postOwnerDpURL
         createdAt
+        user {
+          id
+          user
+          userDP
+          about
+          createdAt
+          updatedAt
+        }
         comments {
           nextToken
         }
@@ -275,6 +386,20 @@ export const onCreateUser = /* GraphQL */ `
       user
       userDP
       about
+      post {
+        items {
+          id
+          postOwnerId
+          postOwnerUsername
+          postTitle
+          postBody
+          postOwnerEmail
+          postOwnerDpURL
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
       createdAt
       updatedAt
     }
@@ -287,6 +412,20 @@ export const onUpdateUser = /* GraphQL */ `
       user
       userDP
       about
+      post {
+        items {
+          id
+          postOwnerId
+          postOwnerUsername
+          postTitle
+          postBody
+          postOwnerEmail
+          postOwnerDpURL
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
       createdAt
       updatedAt
     }
@@ -299,6 +438,20 @@ export const onDeleteUser = /* GraphQL */ `
       user
       userDP
       about
+      post {
+        items {
+          id
+          postOwnerId
+          postOwnerUsername
+          postTitle
+          postBody
+          postOwnerEmail
+          postOwnerDpURL
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
       createdAt
       updatedAt
     }

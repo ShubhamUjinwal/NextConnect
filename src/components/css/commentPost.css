@@ -5,6 +5,8 @@
 }
 .comment > img{
     height: 30px;
+    width: 30px;
+    border-radius: 20px;
 }
 .comment-owner{
     margin-left: 10px;
