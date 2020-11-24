@@ -20,20 +20,19 @@ class App extends React.Component{
     user: null
   }
 
-  setAuthStatus = authenticated => {
+  setAuthenticationStatus = authenticated => {
     this.setState({ isAuthenticated: authenticated });
   }
 
-  setUser = user => {
+  setUserState = user => {
     this.setState({ user: user});
   }
 
   async componentDidMount() {
     try{
-      // const session = await Auth.currentSession();
-      this.setAuthStatus(true);
+      this.setAuthenticationStatus(true);
       const user = await Auth.currentAuthenticatedUser();
-      this.setUser(user);
+      this.setUserState(user);
     }catch(error){
       console.log(error);
     }
@@ -44,8 +43,8 @@ class App extends React.Component{
     const authProps = {
       isAuthenticated: this.state.isAuthenticated,
       user: this.state.user,
-      setAuthStatus: this.setAuthStatus,
-      setUser: this.setUser
+      setAuthenticationStatus: this.setAuthenticationStatus,
+      setUserState: this.setUserState
     }
   return (
     <div className="App">

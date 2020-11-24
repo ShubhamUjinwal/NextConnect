@@ -34,7 +34,6 @@ class CreatePost extends Component{
                 postOwnerUsername: user.attributes.name,
                 postOwnerEmail: user.attributes.email
             })
-
         })
 
         this.getDP()
@@ -48,7 +47,7 @@ class CreatePost extends Component{
 
     handleAddPost = async event => {
         event.preventDefault()
-        const file = this.state.file;
+        const {file} = this.state;
         if(file){
             const extension = file.name.split(".")[1]
             const fileName = file.name.split(".")[0]
@@ -56,6 +55,7 @@ class CreatePost extends Component{
             const key = `images/${uuid()}${fileName}.${extension}` 
             const url = `https://${bucket}.s3.${region}.amazonaws.com/public/${key}`
             this.setState({postUrl: url})
+            console.log(key)
             await Storage.put(key, file, {
                 contentType: mimeType
             })
@@ -79,13 +79,13 @@ class CreatePost extends Component{
         this.setState({file: event.target.files[0]})
     }
 
-    getDP = async (email) => {
+    getDP = async () => {
         const result = await Storage.list('userDp/')
         this.setState({dp: result})
     }
 
     render(){
-        const filename=this.state.file;
+        const filename = this.state.file
         const { dp, postOwnerEmail } = this.state
         let postUrl=""
         return (
@@ -101,9 +101,8 @@ class CreatePost extends Component{
                             return null
                         })   
                     }
-                
-                    <img src={postUrl === ""? user : postUrl} alt={'user'}/>
 
+                    <img src={postUrl === ""? user : postUrl} alt={'user'}/>
 
                         <input 
                         className="username"
@@ -145,5 +144,18 @@ class CreatePost extends Component{
         )
     }
 }
+
+// function CreatePost(){
+
+//     const [postInformation, setPostInformation] = useState({
+//         postOwnerId: "",
+//         postOwnerUsername: "",
+//         postOwnerEmail: "",
+//         postTitle: "",
+//         postBody: "",
+//     })
+
+//     return <h1>hello</h1>
+// }
 
 export default CreatePost;

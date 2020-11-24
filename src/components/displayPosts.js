@@ -192,6 +192,9 @@ class DisplayPosts extends Component{
         this.setState({dp: result})
     }
 
+    hello = () =>{
+        return "abcd"
+    }
 
     render(){
         const { posts, dp } = this.state
@@ -200,7 +203,6 @@ class DisplayPosts extends Component{
         return (
             <div>
             <Navbar username={this.state.ownerUsername}/>
-            
             <br/>
             <br/>
             <CreatePost />

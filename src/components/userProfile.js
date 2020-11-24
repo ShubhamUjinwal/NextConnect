@@ -92,7 +92,8 @@ class UserProfile extends Component{
             const { type : mimeType } = file
             const key = `userDp/${this.state.ownerEmail}/${uuid()}${fileName}.${extension}`   
             const url = `https://${bucket}.s3.${region}.amazonaws.com/public/${key}`
-            console.log(url);
+            const dp = this.state.dp
+            console.log(this.state.dp);
 
             const input = {
                 id: this.state.ownerEmail,
@@ -101,13 +102,14 @@ class UserProfile extends Component{
                 about: "",
                 createdAt: new Date().toISOString()
             }  
-            if (this.state.dp[0].userDP === ""){
+            console.log(dp)
+            if (dp.length === 0){
                 await Storage.put(key, file, {
                     contentType: mimeType
                 })
                 await API.graphql(graphqlOperation(createUser, { input }))
             }else{
-                Storage.remove(this.state.dp[0].userDP.split("public/")[1])
+                Storage.remove(dp[0].userDP.split("public/")[1])
                     .then(result => console.log(result))
                     .catch(err => console.log(err));
 
