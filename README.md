@@ -20,6 +20,6 @@ Url: https://shubhamujinwal.github.io/Portfolio/
 1. Responsive.
 2. Real time updates.
 3. Cross-platform.
-4. Dynammic UI.
+4. Dynamic UI.
 
 ### `Demo`
