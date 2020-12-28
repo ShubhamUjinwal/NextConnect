@@ -10,4 +10,4 @@ Url: https://shubhamujinwal.github.io/Portfolio/
 
 ### `Technology`
 1. **Languages:** Reactjs, ES6, HTML, CSS, NodeJs.
-2. **AWS:** S3, AppSync(GraphQl), DynamoDB, Cloudformation, Amplify, Cognito
+2. **AWS:** S3, AppSync(GraphQl), DynamoDB, Cloudformation, Amplify, Cognito.
