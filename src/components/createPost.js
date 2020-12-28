@@ -13,98 +13,87 @@ const {
 } = config
 
 class CreatePost extends Component{
-
     state ={
         postOwnerId: "",
         postOwnerUsername: "",
         postOwnerEmail: "",
         postTitle: "",
-        postBody: "",
+        postImage: "",
         file: null,
-        postUrl:"",
-        filename:"",
-        dp: []
+        imageUrl:"",
+        imageNameFlag:true,
+        dp: "",
     }
 
     componentDidMount = async () =>{
         await Auth.currentUserInfo()
-        .then( user => {
-            this.setState({
+        .then( user => { this.setState({
                 postOwnerId: user.attributes.sub,
                 postOwnerUsername: user.attributes.name,
                 postOwnerEmail: user.attributes.email
             })
         })
-
-        this.getDP()
+        this.getUserDpFromStorage()
     }
 
     handleChangePost = event => {
-        this.setState({
-         [event.target.name]: event.target.value
-        })
+        this.setState({ [event.target.name]: event.target.value })
     }
 
-    handleAddPost = async event => {
-        event.preventDefault()
-        const {file} = this.state;
-        if(file){
-            const extension = file.name.split(".")[1]
-            const fileName = file.name.split(".")[0]
-            const { type : mimeType } = file
-            const key = `images/${uuid()}${fileName}.${extension}` 
-            const url = `https://${bucket}.s3.${region}.amazonaws.com/public/${key}`
-            this.setState({postUrl: url})
-            console.log(key)
-            await Storage.put(key, file, {
-                contentType: mimeType
-            })
-        }
+    addPostImageToStorage = async (file) =>{
+        const extension = file.name.split(".")[1]
+        const fileName = file.name.split(".")[0]
+        const { type : mimeType } = file
+        const key = `images/${uuid()}${fileName}.${extension}` 
+        const url = `https://${bucket}.s3.${region}.amazonaws.com/public/${key}`
+        this.setState({imageUrl: url})
+        await Storage.put(key, file, { contentType: mimeType })
+    }
 
+    createPost = async ()=>{
         const input = {
             postOwnerId : this.state.postOwnerId,
             postOwnerUsername: this.state.postOwnerUsername,
             postOwnerEmail: this.state.postOwnerEmail,
             postTitle: this.state.postTitle,
-            postBody: this.state.postUrl,
+            postBody: this.state.imageUrl,
             createdAt: new Date().toISOString()
         }  
-
         await API.graphql(graphqlOperation(createPost, { input }))
+        this.setState({ postTitle: "", postImage: "", imageNameFlag: false})
+    }
 
-        this.setState({ postTitle: "", postBody: ""})
+    handleAddPost = async event => {
+        event.preventDefault()
+        const {file} = this.state;
+        if (file) { this.addPostImageToStorage(file) }
+        this.createPost()
     }
 
     handleChangeImage = event =>{
         this.setState({file: event.target.files[0]})
     }
 
-    getDP = async () => {
-        const result = await Storage.list('userDp/')
-        this.setState({dp: result})
+    getUserDpFromStorage = async () => {
+        const email = this.state.postOwnerEmail
+        const result = await Storage.list('userDp/'+email+"/")
+        if(result.length === 0)
+            return null
+        this.setState({dp: result[0].key})
     }
 
     render(){
-        const filename = this.state.file
-        const { dp, postOwnerEmail } = this.state
-        let postUrl=""
+        let file = this.state.file
+        const { dp } = this.state
+        let imageUrl="https://ncimages144521-nc.s3.amazonaws.com/public/"+dp
         return (
             <div className="createpost">
                 <form className="add-post" onSubmit={this.handleAddPost}>
                     <div className="status">
 
-                    {
-                        dp.map((dp) => {
-                            const x = dp.key.split('/')
-                            if(x[1] === postOwnerEmail)
-                                postUrl="https://ncimages144521-nc.s3.amazonaws.com/public/"+dp.key
-                            return null
-                        })   
-                    }
+                    <img src={dp === ""? user : imageUrl} alt={'user'}/>
 
-                    <img src={postUrl === ""? user : postUrl} alt={'user'}/>
-
-                        <input 
+                    <input 
                         className="username"
                         type="text"
                         name="postTitle"
@@ -129,8 +118,8 @@ class CreatePost extends Component{
                         <label htmlFor="file">Photo/Video</label>
                     </div>
                     
-                    {filename != null &&
-                    <p>{filename.name}</p>
+                    {(file != null)&&this.state.imageNameFlag&&
+                    <p>{file.name}</p>
                     }
                     <div className="submit-div">
                         <input 
@@ -144,18 +133,5 @@ class CreatePost extends Component{
         )
     }
 }
-
-// function CreatePost(){
-
-//     const [postInformation, setPostInformation] = useState({
-//         postOwnerId: "",
-//         postOwnerUsername: "",
-//         postOwnerEmail: "",
-//         postTitle: "",
-//         postBody: "",
-//     })
-
-//     return <h1>hello</h1>
-// }
 
 export default CreatePost;

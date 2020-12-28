@@ -11,15 +11,13 @@ class Navbar extends Component{
 
     state = {
         ownerEmail: "",
-        dp: [],
+        dp: "",
         userDpUrl:"",
     }
 
     componentDidMount= async () =>{
         await Auth.currentUserInfo()
-            .then(user => {
-                this.setState(
-                    {
+            .then(user => { this.setState({
                         ownerEmail: user.attributes.email,   
                     }
                 )
@@ -29,8 +27,11 @@ class Navbar extends Component{
 
     
     getDP = async () => {
-        const result = await Storage.list('userDp/')
-        this.setState({dp: result})
+        const email = this.state.ownerEmail
+        const result = await Storage.list('userDp/'+email+"/")
+        if(result.length === 0)
+            return null
+        this.setState({dp: result[0].key})
     }
 
     handleLogOut = async event =>{
@@ -42,8 +43,8 @@ class Navbar extends Component{
     }
 
     render(){
-        const { dp, ownerEmail } = this.state
-        let userDpUrl=""
+        const { dp } = this.state
+        let userDpUrl="https://ncimages144521-nc.s3.amazonaws.com/public/"+dp
         return(
             <div>
                 <nav className="navbar"> 
@@ -52,18 +53,8 @@ class Navbar extends Component{
                     </Link>
                     <p></p>
 
-                    { 
-                        dp.map((dp) => {
-                            const x = dp.key.split('/')
-                            if(x[1] === ownerEmail)
-                                userDpUrl="https://ncimages144521-nc.s3.amazonaws.com/public/"+dp.key
-                            return null
-                        })   
-                    }
-
                     <Link to="/userProfile" >
-                     
-                        <img className="UserDP" src={userDpUrl === "" ? user : userDpUrl} alt={'user'}/>
+                        <img className="UserDP" src={dp === "" ? user : userDpUrl} alt={'user'}/>
                     </Link>
                     <div className="user">
                         <p>{this.props.username}</p>

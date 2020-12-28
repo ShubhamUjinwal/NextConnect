@@ -192,10 +192,6 @@ class DisplayPosts extends Component{
         this.setState({dp: result})
     }
 
-    hello = () =>{
-        return "abcd"
-    }
-
     render(){
         const { posts, dp } = this.state
         let loggedInUser = this.state.ownerId
@@ -211,11 +207,8 @@ class DisplayPosts extends Component{
             return (
                 <div className="posts" key={post.id} >
                     
-
                     <div className="post-header">
-                        <div className="post-inner-header">
-                        
-                        
+                        <div className="post-inner-header">    
                         {
                             dp.map((dp) => {
                                 const x = dp.key.split('/')
@@ -223,8 +216,7 @@ class DisplayPosts extends Component{
                                     post.postOwnerDpURL="https://ncimages144521-nc.s3.amazonaws.com/public/"+dp.key
                                 return null
                             })   
-                        }
-        
+                        }      
                         <img src={post.postOwnerDpURL === null ? user : post.postOwnerDpURL} alt={'user'}/>
 
                         <p className="post-username">
@@ -327,6 +319,4 @@ class DisplayPosts extends Component{
     }</div>) //end of return
     }//end of render
 }
-
-
 export default DisplayPosts;

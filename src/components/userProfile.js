@@ -29,16 +29,13 @@ class UserProfile extends Component{
 
     componentDidMount= async () =>{
         await Auth.currentUserInfo()
-            .then(user => {
-                this.setState(
-                    {
-                        ownerId: user.attributes.sub,
-                        ownerUsername: user.attributes.name,
-                        ownerEmail: user.attributes.email,   
-                    }
-                    
-                )
-        }) 
+        .then( user => { this.setState({
+                    ownerId: user.attributes.sub,
+                    ownerUsername: user.attributes.name,
+                    ownerEmail: user.attributes.email,   
+                }
+            )
+        })
 
         this.getDp(this.state.ownerEmail)
 
@@ -47,9 +44,7 @@ class UserProfile extends Component{
                 next: userData => {
                     const newUser = userData.value.data.onCreateUser
                     const prevUser = this.state.dp.filter( dp => dp.id !== newUser.id)
-
                     const updatedUser = [newUser, ...prevUser]
-
                     this.setState({ posts: updatedUser})
                 }
             })
@@ -59,13 +54,12 @@ class UserProfile extends Component{
                 next: userData => {
                     const { dp } = this.state
                     const updateUser = userData.value.data.onUpdateUser
-                    const index = dp.findIndex(user => user.id === updateUser.id) //had forgotten to say updatePost.id!
+                    const index = dp.findIndex(user => user.id === updateUser.id)
                     const updateUsers = [
                         ...dp.slice(0, index),
                         updateUser,
                         ...dp.slice(index + 1)
                     ]
-
                     this.setState({ dp: updateUsers})
                 }
             })
@@ -93,7 +87,6 @@ class UserProfile extends Component{
             const key = `userDp/${this.state.ownerEmail}/${uuid()}${fileName}.${extension}`   
             const url = `https://${bucket}.s3.${region}.amazonaws.com/public/${key}`
             const dp = this.state.dp
-            console.log(this.state.dp);
 
             const input = {
                 id: this.state.ownerEmail,
@@ -102,7 +95,7 @@ class UserProfile extends Component{
                 about: "",
                 createdAt: new Date().toISOString()
             }  
-            console.log(dp)
+
             if (dp.length === 0){
                 await Storage.put(key, file, {
                     contentType: mimeType
