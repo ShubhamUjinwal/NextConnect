@@ -12,10 +12,12 @@ Url: https://shubhamujinwal.github.io/Portfolio/
 2. **Back-end: (AWS)** AppSync(GraphQl), DynamoDB, Cloudformation, Lambda, Amplify, Cognito and S3 Storage.
 
 ### `Description`
-1. Create React App using ReactJs to make a dynamic UI of posts, likes, and messages.
-2. AWS Amplify (using GraphQL with subscriptions) for real-time data.
-3. Serverless functions like AWS Lambda Functions for notifications.
-4. S3 storage for uploading pictures or video.
+1. Developing a serverless web application that makes dynamic UI of the post, likes and comments.
+2. Storing user posts, likes and comments on the AWS DynamoDB database for low latency access.
+3. Using AWS Cognito for user Authentication and enhanced security by enabling MFA and strong
+password policies.
+4. Integrating with AWS AppSync GraphQl API with subscriptions for real-time notifications resulting in
+a decrease of the API complexity.
 
 ### `Features`
 1. Responsive.
