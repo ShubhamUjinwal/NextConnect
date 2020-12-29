@@ -5,8 +5,6 @@ NextConnect is a social media web application in which:
 3. User can change their profile pictures.
 4. User Authentication.
 
-Url: https://shubhamujinwal.github.io/Portfolio/
-
 ### `Technology`
 1. **Front-end:** ReactJs, ES6, NodeJs, HTML, CSS.
 2. **Back-end: (AWS)** AppSync(GraphQl), DynamoDB, Cloudformation, Lambda, Amplify, Cognito and S3 Storage.
