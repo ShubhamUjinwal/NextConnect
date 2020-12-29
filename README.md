@@ -25,15 +25,15 @@ a decrease of the API complexity.
 3. Cross-platform.
 4. Dynamic UI.
 
-### `Demo`
-1. HomePage<br/>
+## Demo
+### `HomePage`
 ![Capture1](https://user-images.githubusercontent.com/58487474/103264106-b9148e00-4977-11eb-8222-b522695555c9.PNG)
 
-2. SignIn Page<br/>
+### `SignIn Page`
 ![Capture2](https://user-images.githubusercontent.com/58487474/103264111-bdd94200-4977-11eb-8339-411f400aff62.PNG)
 
-3. DashBoard<br/>
+### `DashBoard`
 ![Capture3](https://user-images.githubusercontent.com/58487474/103264114-c0d43280-4977-11eb-99cb-1d06d0ca1ea9.PNG)
 
-4. User profile<br/>
+### `User profile`
 ![Capture4](https://user-images.githubusercontent.com/58487474/103264117-c3cf2300-4977-11eb-8676-17dc802b0e46.PNG)
