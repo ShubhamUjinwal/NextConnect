@@ -33,7 +33,7 @@ a decrease of the API complexity.
 ![Capture2](https://user-images.githubusercontent.com/58487474/103264111-bdd94200-4977-11eb-8339-411f400aff62.PNG)
 
 ### `DashBoard`
-![Capture3](https://user-images.githubusercontent.com/58487474/103264114-c0d43280-4977-11eb-99cb-1d06d0ca1ea9.PNG)
+![Capture3](https://user-images.githubusercontent.com/58487474/103264483-cf6f1980-4978-11eb-8048-c092cce86a0e.PNG)
 
 ### `User profile`
 ![Capture4](https://user-images.githubusercontent.com/58487474/103264117-c3cf2300-4977-11eb-8676-17dc802b0e46.PNG)
