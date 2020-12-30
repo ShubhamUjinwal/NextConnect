@@ -1,5 +1,5 @@
 ## NextConnect
-NextConnect is a social media web application in which:
+NextConnect is a social media web application in which: 
 1. User can make posts with text or media files.
 2. Enabling users to like and comment on posts.
 3. User can change their profile pictures.
