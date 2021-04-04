@@ -5,10 +5,10 @@ NextConnect is a social media web application in which:
 3. User can change their profile pictures.
 4. User Authentication.
 
-URL: https://master.d2q784wlwnzzjs.amplifyapp.com/
+Link: https://master.d2q784wlwnzzjs.amplifyapp.com/
 
 ### `Technology`
-1. **Front-end:** ReactJs, ES6, NodeJs, HTML, CSS.
+1. **Front-end:** ReactJs, ES6, HTML, CSS.
 2. **Back-end: (AWS)** AppSync(GraphQl), DynamoDB, Cloudformation, Lambda, Amplify, Cognito and S3 Storage.
 
 ### `Description`
